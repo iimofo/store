@@ -1,12 +1,16 @@
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
+import { Link } from "react-router-dom";
 
 function Headbar() {
   return (
     <>
       <div className="h-20 items-center flex justify-center bg-white border-b border-gray-300">
-        <img src="src/assets/logo.png" alt="logo" />
+        <Link to="/">
+          <span>CYPER</span>
+        </Link>
+
         <div className="ml-20">
           <input
             type="text"
@@ -20,10 +24,18 @@ function Headbar() {
           />
         </div>
         <div className="flex cursor-pointer text-gray-500 ml-20 space-x-7">
-          <div className="text-black">Hom2e</div>
-          <div className="ml-15 hover:text-black">About</div>
-          <div className="ml-15 hover:text-black">Contact us</div>
-          <div className="ml-15 hover:text-black">Blog</div>
+          <Link to="/">
+            <div className="text-black">Home</div>
+          </Link>
+          <Link to="/about">
+            <div className="ml-15 hover:text-black">About</div>
+          </Link>
+          <Link to="/contact">
+            <div className="ml-15 hover:text-black">Contact us</div>
+          </Link>
+          <Link to="/blog">
+            <div className="ml-15 hover:text-black">Blog</div>
+          </Link>
         </div>
         <div className="flex ml-20 cursor-pointer text-black space-x-4">
           <FavoriteBorderOutlinedIcon />
