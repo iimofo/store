@@ -5,7 +5,7 @@ import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 function Headbar() {
   return (
     <>
-      <div className="h-20 items-center flex justify-center bg-white ">
+      <div className="h-20 items-center flex justify-center bg-white border-b border-gray-300">
         <img src="src/assets/logo.png" alt="logo" />
         <div className="ml-20">
           <input
@@ -19,8 +19,8 @@ function Headbar() {
             }}
           />
         </div>
-        <div className="flex cursor-pointer text-gray-500 ml-20 ">
-          <div className="text-black">Home</div>
+        <div className="flex cursor-pointer text-gray-500 ml-20 space-x-7">
+          <div className="text-black">Hom2e</div>
           <div className="ml-15 hover:text-black">About</div>
           <div className="ml-15 hover:text-black">Contact us</div>
           <div className="ml-15 hover:text-black">Blog</div>
