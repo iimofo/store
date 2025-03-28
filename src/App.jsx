@@ -6,6 +6,7 @@ function App() {
     <>
       <Headbar />
       <Shopping />
+      // we are
     </>
   );
 }
