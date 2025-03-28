@@ -1,0 +1,144 @@
+.cont-header {
+  width: 100vw;
+  height: 100vh;
+}
+.first-cont {
+  height: 50%;
+  background-color: #211c24;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.parg-iphone-header p {
+  color: #909090;
+}
+.btn-iphone-header {
+  border: 1px solid white;
+  width: 30%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 8%;
+  cursor: pointer;
+  transition: background-color 0.7s ease;
+}
+.btn-iphone-header:hover {
+  background-color: white;
+  color: black;
+}
+.image-iphone-header {
+  height: 100%;
+}
+.sec-cont {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sec-first {
+  width: 50%;
+  height: 100%;
+}
+
+.sec-sec {
+  background-color: #d4d3d3;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-top: 2%;
+  padding-left: 2%;
+}
+.div-image-macbook-header {
+  height: 100%;
+  width: 50%;
+}
+.parg-macbook-header {
+  width: 90%;
+}
+.btn-macbook-header {
+  margin: 8%;
+  border: 1px solid black;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.7s ease;
+}
+.btn-macbook-header:hover {
+  background-color: black;
+  color: white;
+}
+.image-macbook-header {
+  height: 90%;
+  width: 100%;
+}
+.sec-first-first {
+  height: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+  cursor: pointer;
+  transition: background-color 0.7s ease;
+}
+.sec-first-first:hover {
+  background-color: #d4d3d3;
+}
+.sec-first-sec {
+  display: flex;
+  height: 50%;
+  cursor: pointer;
+}
+
+.parg-playstation {
+  width: 50%;
+}
+.airpods {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.7s ease;
+  background-color: #d4d3d3;
+}
+.airpods:hover {
+  background-color: #776048;
+}
+
+.parg-airpods {
+  width: 50%;
+}
+.div-img-airpods {
+  height: 100%;
+}
+.img-airpods {
+  height: 100%;
+}
+.Vision-Pro {
+  background-color: #353535;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.7s ease;
+}
+.Vision-Pro:hover {
+  background-color: white;
+  color: black;
+}
+.div-image-playstation {
+  height: 100%;
+}
+.img-playstation {
+  height: 100%;
+}

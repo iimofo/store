@@ -24,7 +24,7 @@ function Headbar() {
           />
         </div>
         <div className="flex cursor-pointer text-gray-500 ml-20 space-x-7">
-          <Link to="/">
+          <Link to="/Home">
             <div className="text-black">Home</div>
           </Link>
           <Link to="/about">
