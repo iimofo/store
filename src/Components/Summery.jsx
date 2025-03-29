@@ -19,7 +19,7 @@ function Summery() {
               <div className="rounded border border-gray-300">
                 <input
                   placeholder="Enter Card Number"
-                  className=" mt-2 h-15 w-70 pl-4 "
+                  className=" mt-2 h-15 w-70 pl-4 outline-none"
                 />
                 <button className="mr-4 p-2 w-20 rounded border mb-4">
                   Apply
