@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Summery() {
   return (
@@ -21,21 +22,23 @@ function Summery() {
                   placeholder="Enter Card Number"
                   className=" mt-2 h-15 w-70 pl-4 outline-none"
                 />
-                <button className="mr-4 p-2 w-20 rounded border mb-4">
+                <button className="mr-4 p-2 w-20 rounded border mb-4 cursor-pointer">
                   Apply
                 </button>
               </div>
             </div>
           </div>
           <div className="mt-5">
-            <div >Subtotal</div>
+            <div>Subtotal</div>
             <div className="mt-3">Estimated Tax</div>
             <div className="mt-3">Estimated shipping & Handling</div>
             <div className="mt-5">Total</div>
           </div>
-          <button className="bg-black text-white py-4 w-100 rounded mt-10">
-            Checkout
-          </button>
+          <Link to="/checkout">
+            <button className="bg-black text-white py-4 w-100 rounded mt-10 cursor-pointer">
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </>
