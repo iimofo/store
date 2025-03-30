@@ -1,11 +1,11 @@
 import Headbar from "./Components/Headbar/Headbar";
-import Shopping from "./Components/pages/shopping";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Headbar />
-      <Shopping />
+      {/* <Headbar /> */}
+      <Outlet />
     </>
   );
 }

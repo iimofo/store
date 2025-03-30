@@ -1,15 +1,13 @@
-import Headbar from "../Headbar/Headbar"
-import Header from "./Header/Header"
-import "./Home.css"
-
+import Headbar from "../Headbar/Headbar";
+import Header from "./Header/Header";
+import "./Home.css";
 
 function Home() {
-    return (
-        <div >
-            <Headbar/>
-            <Header/>
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
-export default Home
+export default Home;

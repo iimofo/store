@@ -24,7 +24,7 @@ function Headbar() {
           />
         </div>
         <div className="flex cursor-pointer text-gray-500 ml-20 space-x-7">
-          <Link to="/Home">
+          <Link to="/home">
             <div className="text-black">Home</div>
           </Link>
           <Link to="/about">
@@ -39,7 +39,9 @@ function Headbar() {
         </div>
         <div className="flex ml-20 cursor-pointer text-black space-x-4">
           <FavoriteBorderOutlinedIcon />
-          <ShoppingCartOutlinedIcon />
+          <Link to="/shoppingcart">
+            <ShoppingCartOutlinedIcon />
+          </Link>
           <Person2OutlinedIcon />
         </div>
       </div>
