@@ -7,6 +7,7 @@ import Login from "./Components/pages/login.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Shopping from "./Components/pages/shopping.jsx";
 import Headbar from "./Components/Headbar/Headbar.jsx";
+import Checkout from "./Components/pages/checkout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/shoppingcart" element={<Shopping />} />
           <Route path="/blog" element={<Home />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
 
         {/* Auth routes without the main layout */}
