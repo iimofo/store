@@ -3,7 +3,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PaymentIcon from "@mui/icons-material/Payment";
 
-function CheckoutSteps() {
+function CheckoutSteps({ activeStep, onStepClick }) {
   const checkoutStepsTabs = [
     {
       steptext: "Step 1",
@@ -37,9 +37,17 @@ function CheckoutSteps() {
   return (
     <div className="flex justify-around items-center p-20 rounded-lg w-full">
       {checkoutStepsTabs.map((step, index) => (
-        <div key={index} className="flex items-center justify-center">
+        <div
+          key={index}
+          className="flex items-center justify-center "
+          onClick={() => onStepClick && onStepClick(index)}
+        >
           <div>{step.icon}</div>
-          <div className="flex flex-col items-center ml-2">
+          <div
+            className={`flex flex-col items-center ml-2 ${
+              index === activeStep ? "text-black" : "text-gray-400"
+            }`}
+          >
             <p className="text-sm font-bold">{step.steptext}</p>
             <h1 className="text-lg font-semibold">{step.title}</h1>
           </div>

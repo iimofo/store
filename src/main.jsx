@@ -7,7 +7,7 @@ import Login from "./Components/pages/login.jsx";
 import Home from "./Components/Home/Home.jsx";
 import Shopping from "./Components/pages/shopping.jsx";
 import Headbar from "./Components/Headbar/Headbar.jsx";
-import Checkout from "./Components/pages/checkout.jsx";
+import Checkout from "./Components/checkout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
