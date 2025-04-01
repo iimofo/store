@@ -27,7 +27,7 @@ function Checkout() {
         <PaymentComponent />
       ) : null}
 
-      <div className=" space-x-5 mt-5 absolute right-0 mr-65">
+      <div className="space-x-5 mt-5 absolute right-0 mr-65">
         <button
           onClick={handleBackClick}
           className="border rounded bg-white text-black px-7 py-2 cursor-pointer"

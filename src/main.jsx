@@ -8,7 +8,6 @@ import Home from "./Components/Home/Home.jsx";
 import Shopping from "./Components/pages/shopping.jsx";
 import Headbar from "./Components/Headbar/Headbar.jsx";
 import Checkout from "./Components/checkout.jsx";
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
