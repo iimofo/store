@@ -45,8 +45,6 @@ function PaymentsInputsCom() {
           </div>
 
           <div className="relative bg-black w-100 h-50 rounded-2xl mt-7">
-            {/* <div className="absolute top-0 h-70 right-40 rotate-30 bottom-30 w-5 bg-red-200 opacity-50 z-10"></div>
-            <div className="absolute top-0 h-70 right-30 rotate-30 bottom-30 w-5 bg-red-200 opacity-50 z-10"></div> */}
             <div className="relative z-20 text-white h-full">
               <div className="flex items-center mt-5">
                 <SimCardIcon className="transform rotate-90 ml-10 mt-5 text-yellow-400" />

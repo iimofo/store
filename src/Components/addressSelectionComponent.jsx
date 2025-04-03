@@ -4,10 +4,20 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import ClearIcon from "@mui/icons-material/Clear";
 import EditIcon from "@mui/icons-material/Edit";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  TextField,
+  Button,
+} from "@mui/material";
 
 function AddressSelectionComponent() {
   const [selectedAddress, setSelectedAddress] = useState(0);
-  const hisaddress = [
+  const [open, setOpen] = useState(false);
+  const [hisaddress, setHisAddress] = useState([
     {
       id: 0,
       addressTitle: "2118 Thornridge Cir",
@@ -29,7 +39,25 @@ function AddressSelectionComponent() {
       phone: "(312) 555-0199",
       type: "Other",
     },
-  ];
+  ]);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const formJson = Object.fromEntries(formData.entries());
+    const newAddress = {
+      id: hisaddress.length,
+      addressTitle: formJson.addressTitle || "New Address",
+      address: formJson.address,
+      phone: formJson.phone || "N/A",
+      type: formJson.type || "Other",
+    };
+    setHisAddress((prevAddresses) => [...prevAddresses, newAddress]);
+    handleClose();
+  };
 
   return (
     <div className="flex flex-col space-y-3 items-center justify-center">
@@ -77,8 +105,72 @@ function AddressSelectionComponent() {
               "linear-gradient(to right, rgba(209,213,219,0) 0%, rgba(209,213,219,1) 50%, rgba(209,213,219,0) 100%) 1",
           }}
         />
-        <AddCircleIcon className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 hover:text-blue-500 cursor-pointer" />
+        <AddCircleIcon
+          onClick={handleOpen}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 hover:text-blue-500 cursor-pointer"
+        />
       </div>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        slotProps={{
+          paper: {
+            component: "form",
+            onSubmit: handleSubmit,
+          },
+        }}
+      >
+        <DialogTitle>Add New Address</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Please fill out the details for the new address.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="addressTitle"
+            name="addressTitle"
+            label="Address Title"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            required
+            margin="dense"
+            id="address"
+            name="address"
+            label="Address"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            margin="dense"
+            id="phone"
+            name="phone"
+            label="Phone"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+          <TextField
+            margin="dense"
+            id="type"
+            name="type"
+            label="Type (e.g., Home, Work)"
+            type="text"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button type="submit">Add</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

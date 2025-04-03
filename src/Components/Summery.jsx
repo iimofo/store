@@ -11,7 +11,7 @@ function Summery() {
             <div className="text-gray-500">Discount code / Promo code</div>
             <input
               placeholder="Code"
-              className="rounded border mt-2 h-15 w-100 pl-4 border-gray-300"
+              className="rounded border mt-2 h-15 w-100 pl-4 border-gray-300 outline-none"
             />
           </div>
           <div className="mt-5">
