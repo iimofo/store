@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import SimCardIcon from "@mui/icons-material/SimCard";
 import WifiIcon from "@mui/icons-material/Wifi";
 
 function PaymentsInputsCom() {
+  const [cardNumber, setCardNumber] = useState("9999 9999 9999 9999");
+  const [cardholder, setCardholder] = useState("Mustafa Hashim");
+
   const [ActivePayment, setActivePayment] = React.useState(0);
   const paymentMethods = [
     {
@@ -50,10 +53,17 @@ function PaymentsInputsCom() {
                 <SimCardIcon className="transform rotate-90 ml-10 mt-5 text-yellow-400" />
                 <WifiIcon className="transform rotate-90 ml-2 mt-5" />
               </div>
-              <div className="absolute bottom-14 left-10">
-                9999 9999 9999 9999
+              <div
+                className="absolute bottom-14 left-10"
+                onBlur={(e) => {
+                  e.target.value = e.target.value
+                    .replace(/\s/g, "")
+                    .replace(/(.{4})/g, "$1 ");
+                }}
+              >
+                {cardNumber}
               </div>
-              <div className="absolute bottom-5 left-8">Cardholder</div>
+              <div className="absolute bottom-5 left-8">{cardholder}</div>
             </div>
           </div>
 
@@ -62,11 +72,21 @@ function PaymentsInputsCom() {
               className="border border-gray-300 w-130 h-13 rounded-xl p-3"
               type="text"
               placeholder="Cardholder Name"
+              value={cardholder}
+              onChange={(e) => setCardholder(e.target.value)}
             />
             <input
               className="border border-gray-300 w-130 h-13 rounded-xl p-3 "
-              type="text"
+              type="mumber"
               placeholder="Card Number"
+              value={cardNumber}
+              onChange={(e) => setCardNumber(e.target.value)}
+              maxLength={16}
+              onBlur={(e) => {
+                e.target.value = e.target.value
+                  .replace(/\s/g, "")
+                  .replace(/(.{4})/g, "$1 ");
+              }}
             />
             <div className="flex space-x-2">
               <input

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -17,29 +17,28 @@ import {
 function AddressSelectionComponent() {
   const [selectedAddress, setSelectedAddress] = useState(0);
   const [open, setOpen] = useState(false);
-  const [hisaddress, setHisAddress] = useState([
-    {
-      id: 0,
-      addressTitle: "2118 Thornridge Cir",
-      address: "2118 Thornridge Cir. Syracuse, Connecticut 35624",
-      phone: "(209) 555-0104",
-      type: "Home",
-    },
-    {
-      id: 1,
-      addressTitle: "1234 Elm St",
-      address: "1234 Elm St. Springfield, Illinois 62704",
-      phone: "(217) 555-0123",
-      type: "Work",
-    },
-    {
-      id: 2,
-      addressTitle: "5678 Oak St",
-      address: "5678 Oak St. Chicago, Illinois 60601",
-      phone: "(312) 555-0199",
-      type: "Other",
-    },
-  ]);
+
+  const [hisaddress, setHisAddress] = useState(() => {
+    const storedAddresses = localStorage.getItem("hisaddress");
+    return storedAddresses
+      ? JSON.parse(storedAddresses)
+      : [
+          {
+            id: 0,
+            addressTitle: "2118 Thornridge Cir",
+            address: "2118 Thornridge Cir. Syracuse, Connecticut 35624",
+            phone: "(209) 555-0104",
+            type: "Home",
+          },
+          {
+            id: 1,
+            addressTitle: "1234 Elm St",
+            address: "1234 Elm St. Springfield, Illinois 62704",
+            phone: "(217) 555-0123",
+            type: "Work",
+          },
+        ];
+  });
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,7 +54,11 @@ function AddressSelectionComponent() {
       phone: formJson.phone || "N/A",
       type: formJson.type || "Other",
     };
-    setHisAddress((prevAddresses) => [...prevAddresses, newAddress]);
+
+    // Update state and save to localStorage
+    const updatedAddresses = [...hisaddress, newAddress];
+    setHisAddress(updatedAddresses);
+    localStorage.setItem("hisaddress", JSON.stringify(updatedAddresses));
     handleClose();
   };
 
