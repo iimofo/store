@@ -27,8 +27,8 @@ function Headbar() {
           <Link to="/home">
             <div className="text-black">Home</div>
           </Link>
-          <Link to="/about">
-            <div className="ml-15 hover:text-black">About</div>
+          <Link to="/products">
+            <div className="ml-15 hover:text-black">Product`s</div>
           </Link>
           <Link to="/contact">
             <div className="ml-15 hover:text-black">Contact us</div>
