@@ -1,7 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "./actions/cartActions";
 
-function ProductComponent({ name, image, price }) {
+function ProductComponent({ id, name, image, price }) {
   const [quality, setQuality] = useState(1);
+  const dispatch = useDispatch();
 
   const add = () => {
     setQuality((prev) => prev + 1);
@@ -11,9 +14,13 @@ function ProductComponent({ name, image, price }) {
     setQuality((prev) => (prev > 1 ? prev - 1 : prev));
   };
 
+  const handleRemove = () => {
+    dispatch(removeFromCart(id));
+  };
+
   return (
     <div className="w-[520px] h-[100px] flex items-center justify-between px-4 text-black bg-white border-b border-gray-200">
-      <img src={image} alt="iphone" className="h-20" />
+      <img src={image} alt={name} className="h-20" />
 
       <div className="flex flex-col">
         <span>{name}</span>
@@ -34,7 +41,9 @@ function ProductComponent({ name, image, price }) {
 
       <span>${price}</span>
 
-      <button className="text-lg">X</button>
+      <button className="text-lg cursor-pointer" onClick={handleRemove}>
+        X
+      </button>
     </div>
   );
 }

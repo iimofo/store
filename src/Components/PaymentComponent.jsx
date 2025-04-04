@@ -3,6 +3,8 @@ import PaySummeryCom from "./paySummeryCom";
 import PaymentsInputsCom from "./PaymentsInputsCom";
 
 function PaymentComponent() {
+
+
   return (
     <>
       <div className="flex  justify-center">

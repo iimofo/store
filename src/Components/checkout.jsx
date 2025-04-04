@@ -16,7 +16,7 @@ function Checkout() {
   };
 
   return (
-    <div>
+    <div className=" mb-50 ">
       <Checkoutsteps activeStep={activeStep} />
 
       {activeStep === 0 ? (

@@ -6,14 +6,13 @@ function allProducts() {
     {
       id: 1,
       image: "src/assets/iPhone.png",
-      name: "iPhone 14",
+      name: "Apple iPhone 14 Pro Max 128Gb ",
       price: 1499,
     },
   ];
   return (
     <>
       <div className="ml-50 mt-50">
-        <div>efsfs</div>
         {ourProducts.map((i) => (
           <div key={i.id}>
             <MiniProduct
