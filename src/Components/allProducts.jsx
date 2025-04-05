@@ -6,7 +6,7 @@ function allProducts() {
     {
       id: 1,
       image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro Max 128Gb ",
+      name: "Apple iPhone 14 Pro Max 128Gb",
       price: 1499,
     },
   ];

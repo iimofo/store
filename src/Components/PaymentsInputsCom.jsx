@@ -64,6 +64,8 @@ function PaymentsInputsCom() {
                 {cardNumber}
               </div>
               <div className="absolute bottom-5 left-8">{cardholder}</div>
+              <div className="flex bg-red-500 items-center justify-center w-12 h-12 absolute right-13 bottom-5 rounded-full"></div>
+              <div className="flex bg-orange-500 items-center justify-center w-12 h-12 absolute right-5 bottom-5 rounded-full"></div>
             </div>
           </div>
 

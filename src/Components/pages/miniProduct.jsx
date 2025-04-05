@@ -17,7 +17,7 @@ function MiniProduct({ id, name, price, image }) {
         <div className="flex justify-center items-center flex-col space-y-2">
           <img src={image} alt={name} className="h-20" />
           <div className="px-10">{name}</div>
-          <div>${price}</div>
+          <div>IQD {price}</div>
           <button
             className="bg-black text-white w-40 h-12 cursor-pointer rounded-lg"
             onClick={handleAddToCart}
