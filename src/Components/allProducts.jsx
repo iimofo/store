@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import MiniProduct from "./pages/miniProduct";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -7,9 +7,106 @@ import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function allProducts() {
+  const [open, setOpen] = useState(false);
   const ourProducts = [
     {
       id: 1,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 2,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 3,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 4,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 5,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 6,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 7,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 8,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 9,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 10,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 11,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 12,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 13,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 14,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 15,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 16,
+      image: "src/assets/iPhone.png",
+      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
+      price: 1499,
+    },
+    {
+      id: 17,
       image: "src/assets/iPhone.png",
       name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
       price: 1499,
@@ -79,10 +176,10 @@ function allProducts() {
           <KeyboardArrowRightIcon className="text-gray-400" />
           <div className="cursor-pointer">Smartphones</div>
         </div>
-        <div>
-          <div className="ml-30 mt-15 space-y-5">
-            <div className="flex flex-col cursor-pointer">
-              <div className="flex">
+        <div className="flex">
+          <div className="ml-30 mt-15 space-y-5 w-60 ">
+            <div className="flex flex-col w-60 ">
+              <div className="flex cursor-pointer">
                 <div className="border-b border-gray-300 w-60 text-xl h-10 ">
                   Brand
                 </div>
@@ -99,7 +196,7 @@ function allProducts() {
                 }}
               />
               {brands.map((i) => (
-                <div className="flex items-center">
+                <div className="flex items-center" key={i.id}>
                   <FormControlLabel
                     control={
                       <Checkbox
@@ -149,19 +246,49 @@ function allProducts() {
               <KeyboardArrowDownIcon />
             </div>
           </div>
-        </div>
-        {/* <div className="ml-50 mt-50">
-          {ourProducts.map((i) => (
-            <div key={i.id}>
-              <MiniProduct
-                image={i.image}
-                id={i.id}
-                name={i.name}
-                price={i.price}
-              />
+
+          <div className="mt-17 ml-10 w-[67rem]">
+            <div>
+              <div className="mb-5">Selected Products: 85</div>
+              <div className="flex justify-end mb-3">
+                <div className="relative inline-block text-left">
+                  <button
+                    onClick={() => setOpen(!open)}
+                    className="bg-white text-black px-4 py-2 rounded-lg shadow flex items-center"
+                  >
+                    By rating
+                    <KeyboardArrowDownIcon className="ml-14" />
+                  </button>
+
+                  {open && (
+                    <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-10">
+                      <ul className="py-2 text-gray-700">
+                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                          By price
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                          By type
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          ))}
-        </div> */}
+            <div className="flex flex-wrap gap-4">
+              {ourProducts.map((i) => (
+                <div key={i.id}>
+                  <MiniProduct
+                    image={i.image}
+                    id={i.id}
+                    name={i.name}
+                    price={i.price}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
