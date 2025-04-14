@@ -1,3 +1,4 @@
+// index.js (or wherever your routing is defined)
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
@@ -11,6 +12,7 @@ import Checkout from "./Components/checkout.jsx";
 import store from "./Components/store.js";
 import { Provider } from "react-redux";
 import AllProducts from "./Components/allProducts.jsx";
+import ProductDetails from "./ProductDetails.jsx"; // <-- Import your new component
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -27,6 +29,8 @@ createRoot(document.getElementById("root")).render(
             <Route path="/blog" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/checkout" element={<Checkout />} />
+            {/* Route for product details */}
+            <Route path="/product/:id" element={<ProductDetails />} />
           </Route>
 
           {/* Auth routes without the main layout */}

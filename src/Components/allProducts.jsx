@@ -1,117 +1,16 @@
-import { React, useState } from "react";
+// AllProducts.jsx
+import React, { useState } from "react";
 import MiniProduct from "./pages/miniProduct";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { ourProducts } from "../productsData";
 
-function allProducts() {
+function AllProducts() {
   const [open, setOpen] = useState(false);
-  const ourProducts = [
-    {
-      id: 1,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 2,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 3,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 4,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 5,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 6,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 7,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 8,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 9,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 10,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 11,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 12,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 13,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 14,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 15,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 16,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-    {
-      id: 17,
-      image: "src/assets/iPhone.png",
-      name: "Apple iPhone 14 Pro 512GB Gold (MQ233)",
-      price: 1499,
-    },
-  ];
+
   const brands = [
     {
       id: 1,
@@ -162,9 +61,10 @@ function allProducts() {
       checkedOrNot: false,
     },
   ];
+
   return (
     <>
-      <div className="">
+      <div>
         <div className="flex ml-30 mt-10 space-x-5">
           <div className="text-gray-400 cursor-pointer hover:text-black">
             Home
@@ -249,7 +149,9 @@ function allProducts() {
 
           <div className="mt-17 ml-10 w-[67rem]">
             <div>
-              <div className="mb-5">Selected Products: 85</div>
+              <div className="mb-5">
+                Selected Products: {ourProducts.length}
+              </div>
               <div className="flex justify-end mb-3">
                 <div className="relative inline-block text-left">
                   <button
@@ -294,4 +196,4 @@ function allProducts() {
   );
 }
 
-export default allProducts;
+export default AllProducts;
