@@ -1,48 +1,69 @@
 import React, { useState } from "react";
-import Checkoutsteps from "./checkoutsteps";
-import AddressSelectionComponent from "./addressSelectionComponent";
-import ShoppingComponent from "./shoppingComponent";
-import PaymentComponent from "./paymentComponent";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import CheckoutSteps from "./CheckoutSteps";
+import AddressSelectionComponent from "./AddressSelectionComponent";
+import ShoppingComponent from "./ShoppingComponent";
+import PaymentComponent from "./PaymentComponent";
 
-function Checkout() {
-  const [activeStep, setActiveStep] = useState(0);
+export default function Checkout() {
+  const [step, setStep] = useState(0);
+  const cartItems = useSelector((s) => s.cart.cartItems);
 
-  const handleNextClick = () => {
-    setActiveStep((prevStep) => (prevStep < 2 ? prevStep + 1 : prevStep));
+  const handleNext = async () => {
+    if (step < 2) {
+      setStep(step + 1);
+      return;
+    }
+
+    // map exactly to Kyrrex schema
+    const invoiceItems = cartItems.map((i) => ({
+      name: i.name,
+      price: i.price,
+      quantity: i.qty,
+    }));
+
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3001/api/create-invoice",
+        {
+          fiatCurrency: "eur",
+          items: invoiceItems,
+          isUnlimited: false,
+        }
+      );
+      window.location.href = data.invoiceUrl;
+    } catch (err) {
+      console.error("Error creating invoice:", err.response?.data || err);
+    }
   };
 
-  const handleBackClick = () => {
-    setActiveStep((prevStep) => (prevStep > 0 ? prevStep - 1 : 0));
-  };
+  const handleBack = () => setStep((s) => Math.max(0, s - 1));
+  const nextLabel = step === 2 ? "Checkout" : "Next";
 
   return (
-    <div className=" mb-50 ">
-      <Checkoutsteps activeStep={activeStep} />
+    <div className="p-8">
+      <CheckoutSteps activeStep={step} />
 
-      {activeStep === 0 ? (
-        <AddressSelectionComponent />
-      ) : activeStep === 1 ? (
-        <ShoppingComponent />
-      ) : activeStep === 2 ? (
-        <PaymentComponent />
-      ) : null}
+      {step === 0 && <AddressSelectionComponent />}
+      {step === 1 && <ShoppingComponent />}
+      {step === 2 && <PaymentComponent />}
 
-      <div className="space-x-5 mt-5 absolute right-0 mr-65">
+      <div className="mt-6 flex justify-end space-x-4">
         <button
-          onClick={handleBackClick}
-          className="border rounded bg-white text-black px-7 py-2 cursor-pointer"
+          onClick={handleBack}
+          disabled={step === 0}
+          className="px-4 py-2 border rounded"
         >
           Back
         </button>
         <button
-          onClick={handleNextClick}
-          className="border rounded bg-black text-white px-7 py-2 cursor-pointer"
+          onClick={handleNext}
+          className="px-4 py-2 bg-black text-white rounded"
         >
-          Next
+          {nextLabel}
         </button>
       </div>
     </div>
   );
 }
-
-export default Checkout;

@@ -1,51 +1,53 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { removeFromCart } from "./actions/cartActions";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+// import { updateCartQty, removeFromCart } from "../actions/cartActions";
+import { updateCartQty, removeFromCart } from "./actions/cartActions";
 
-function ProductComponent({ id, name, image, price }) {
-  const [quality, setQuality] = useState(1);
+export default function ProductComponent({ id, name, image, price }) {
   const dispatch = useDispatch();
+  const cartItem = useSelector((s) =>
+    s.cart.cartItems.find((i) => i.id === id)
+  );
+  const qty = cartItem?.qty || 0;
 
-  const add = () => {
-    setQuality((prev) => prev + 1);
+  const increase = () => {
+    if (qty > 0) {
+      dispatch(updateCartQty(id, qty + 1));
+    } else {
+      dispatch(updateCartQty(id, 1));
+    }
   };
 
-  const sub = () => {
-    setQuality((prev) => (prev > 1 ? prev - 1 : prev));
-  };
-
-  const handleRemove = () => {
-    dispatch(removeFromCart(id));
+  const decrease = () => {
+    if (qty > 1) {
+      dispatch(updateCartQty(id, qty - 1));
+    } else if (qty === 1) {
+      dispatch(removeFromCart(id));
+    }
   };
 
   return (
-    <div className="w-[520px] h-[100px] flex items-center justify-between px-4 text-black bg-white border-b border-gray-200">
-      <img src={image} alt={name} className="h-20" />
-
-      <div className="flex flex-col">
-        <span>{name}</span>
-        <span>#25139526913984</span>
+    <div className="flex items-center justify-between p-4 border-b">
+      <img src={image} alt={name} className="h-16 w-16 object-cover" />
+      <div className="flex-1 ml-4">
+        <h3 className="font-medium">{name}</h3>
+        <p>${price.toFixed(2)}</p>
       </div>
-
-      <div className="flex items-center gap-2">
-        <button className="text-xl cursor-pointer" onClick={sub}>
-          -
+      <div className="flex items-center space-x-2">
+        <button onClick={decrease} disabled={qty === 0}>
+          −
         </button>
-        <span className="flex border rounded border-gray-200 w-7 h-7 items-center justify-center">
-          {quality}
-        </span>
-        <button className="text-xl cursor-pointer" onClick={add}>
-          +
-        </button>
+        <span>{qty}</span>
+        <button onClick={increase}>＋</button>
       </div>
-
-      <span>${price}</span>
-
-      <button className="text-lg cursor-pointer" onClick={handleRemove}>
-        X
-      </button>
+      {qty > 0 && (
+        <button
+          onClick={() => dispatch(removeFromCart(id))}
+          className="ml-4 text-red-500"
+        >
+          ×
+        </button>
+      )}
     </div>
   );
 }
-
-export default ProductComponent;

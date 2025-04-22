@@ -1,5 +1,5 @@
 import React from "react";
-import PaySummeryCom from "./paySummeryCom";
+import PaySummeryCom from "./PaySummaryCom"; // Renamed for consistency
 import PaymentsInputsCom from "./PaymentsInputsCom";
 
 function PaymentComponent() {

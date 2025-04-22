@@ -1,4 +1,3 @@
-// AllProducts.jsx
 import React, { useState } from "react";
 import MiniProduct from "./pages/miniProduct";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
